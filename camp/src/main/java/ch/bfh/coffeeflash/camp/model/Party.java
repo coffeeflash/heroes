@@ -7,6 +7,11 @@ public class Party {
     private String name;
     private List<Hero> members;
 
+    public Party(String name, List<Hero> members) {
+        this.name = name;
+        this.members = members;
+    }
+
     public String getName() {
         return name;
     }

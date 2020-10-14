@@ -1,6 +1,6 @@
 package ch.bfh.coffeeflash.camp;
 
-import ch.bfh.coffeeflash.camp.service.HeroService;
+import ch.bfh.coffeeflash.camp.service.PartyService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
@@ -10,11 +10,8 @@ public class App {
         ctx.scan("ch.bfh.coffeeflash.camp");
         ctx.refresh();
 
-        HeroService heroService = ctx.getBean(HeroService.class);
-
-        for (int i = 0; i < 10; i++) {
-            heroService.createHero("Hero" + i);
-        }
+        PartyService partyService = ctx.getBean(PartyService.class);
+        partyService.createParty("Coffeflash");
 
         ctx.close();
     }
