@@ -1,7 +1,13 @@
 package ch.bfh.coffeeflash.camp.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Hero {
 
+    @Id
+    private String id;
     private String name;
     private int atk;
     private int def;
@@ -13,6 +19,10 @@ public class Hero {
         this.def = def;
         this.hp = hp;
     }
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getName() {
         return name;
