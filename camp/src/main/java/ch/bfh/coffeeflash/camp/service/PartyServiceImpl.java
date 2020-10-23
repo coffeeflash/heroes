@@ -2,6 +2,8 @@ package ch.bfh.coffeeflash.camp.service;
 
 import ch.bfh.coffeeflash.camp.model.Hero;
 import ch.bfh.coffeeflash.camp.model.Party;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ public class PartyServiceImpl implements PartyService{
     @Autowired
     HeroService heroService;
 
+    private static final Logger LOG = LoggerFactory.getLogger(PartyServiceImpl.class);
+
     public Party createParty(String name) {
 
         List<Hero> heroes = new ArrayList<>();
@@ -21,7 +25,7 @@ public class PartyServiceImpl implements PartyService{
             heroes.add(heroService.createHero("Hero" + i));
         }
         Party party = new Party(name, heroes);
-        System.out.println("Party " + name + " has been created");
+        LOG.info("Party " + name + " has been created");
         return party;
     }
 }
