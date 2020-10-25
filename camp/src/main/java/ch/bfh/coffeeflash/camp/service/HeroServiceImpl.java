@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -28,5 +29,9 @@ public class HeroServiceImpl implements HeroService{
                 "his UUID is: " + hero.getId());
 
         return hero;
+    }
+
+    public List<Hero> getStrongHeroes(){
+        return heroRepository.findByAtkGreaterThan(50);
     }
 }

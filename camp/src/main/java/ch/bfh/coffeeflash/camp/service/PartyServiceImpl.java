@@ -26,6 +26,7 @@ public class PartyServiceImpl implements PartyService{
         }
         Party party = new Party(name, heroes);
         LOG.info("Party " + name + " has been created");
+        LOG.info("There are " + heroService.getStrongHeroes().size() + " strong heroes (atk > 50)");
         return party;
     }
 }
