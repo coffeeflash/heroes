@@ -1,8 +1,10 @@
 package ch.bfh.coffeeflash.camp.model;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import java.util.List;
 
-public class Party {
+public class Party extends RepresentationModel {
 
     private String name;
     private List<Hero> members;

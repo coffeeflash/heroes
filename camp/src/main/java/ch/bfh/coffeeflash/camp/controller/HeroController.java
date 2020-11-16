@@ -3,6 +3,7 @@ package ch.bfh.coffeeflash.camp.controller;
 import ch.bfh.coffeeflash.camp.model.Hero;
 import ch.bfh.coffeeflash.camp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -25,6 +26,12 @@ public class HeroController {
         return heroRepository.findById(id);
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void create(@RequestBody Hero hero) { heroRepository.save(hero); }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable String id) { heroRepository.deleteById(id); }
 
 }
