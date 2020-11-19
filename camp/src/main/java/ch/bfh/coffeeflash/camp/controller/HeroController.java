@@ -13,7 +13,10 @@ import java.util.Optional;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
-@RequestMapping("/heroes")
+@RequestMapping("/heroesHateosManuel")
+//We did a wrong interpretation first, so we implemented the HATEOS links here
+//But then we realized that this is generated automatically by @RepositoryRestResource
+//But because of the effort it took, we leave it like that here :)
 public class HeroController {
 
     @Autowired
