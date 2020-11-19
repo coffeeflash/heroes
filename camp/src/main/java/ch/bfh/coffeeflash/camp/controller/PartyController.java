@@ -5,10 +5,7 @@ import ch.bfh.coffeeflash.camp.model.Party;
 import ch.bfh.coffeeflash.camp.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.support.RepositoryEntityLinks;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -23,7 +20,10 @@ public class PartyController {
     @Autowired
     private RepositoryEntityLinks entityLinks;
 
-    @GetMapping(value = "/createParty")
+    /*
+    We use a post mapping, because our party service creates new heroes, eventually we change that later
+     */
+    @PostMapping(value = "/createParty")
     public Party createParty(@RequestParam String name) {
         Party party = partyService.createParty(name);
         party.add(linkTo(methodOn(PartyController.class).createParty(name)).withSelfRel());
