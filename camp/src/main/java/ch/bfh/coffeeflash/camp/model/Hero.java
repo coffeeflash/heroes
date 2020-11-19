@@ -1,6 +1,7 @@
 package ch.bfh.coffeeflash.camp.model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.hateoas.RepresentationModel;
 //import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 
 //@Document
 @Entity
-public class Hero {
+public class Hero extends RepresentationModel<Hero> {
 
     @Id
     @GeneratedValue(generator = "system-uuid")
