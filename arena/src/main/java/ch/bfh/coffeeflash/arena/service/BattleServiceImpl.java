@@ -2,7 +2,6 @@ package ch.bfh.coffeeflash.arena.service;
 
 import ch.bfh.coffeeflash.arena.model.Hero;
 import ch.bfh.coffeeflash.arena.model.Party;
-import ch.bfh.coffeeflash.arena.service.BattleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DefaultBattleService implements BattleService {
+public class BattleServiceImpl implements BattleService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultBattleService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BattleServiceImpl.class);
     private static final DecimalFormat f = new DecimalFormat("##.00");
 
     @Override
