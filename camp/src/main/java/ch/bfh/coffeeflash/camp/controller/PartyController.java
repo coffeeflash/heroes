@@ -23,7 +23,7 @@ public class PartyController {
     /*
     We use a post mapping, because our party service creates new heroes, eventually we change that later
      */
-    @PostMapping(value = "/createParty")
+    @GetMapping(value = "/createParty")
     public Party createParty(@RequestParam String name) {
         Party party = partyService.createParty(name);
         party.add(linkTo(methodOn(PartyController.class).createParty(name)).withSelfRel());

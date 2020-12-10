@@ -1,20 +1,21 @@
 package ch.bfh.coffeeflash.camp.model;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.hateoas.RepresentationModel;
-//import org.springframework.data.mongodb.core.mapping.Document;
+//import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+//import org.springframework.hateoas.RepresentationModel;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 
-//@Document
-@Entity
-public class Hero extends RepresentationModel<Hero> {
+@Document
+//@Entity
+public class Hero /*extends RepresentationModel<Hero>*/ {
 
     @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+//    @GeneratedValue(generator = "system-uuid")
+//    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
     private String name;
     private int atk;

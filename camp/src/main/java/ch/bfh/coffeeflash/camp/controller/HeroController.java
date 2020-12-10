@@ -28,8 +28,8 @@ public class HeroController {
 
         for (Hero hero : allHeroes) {
             String heroId = hero.getId();
-            Link selfLink = linkTo(HeroController.class).slash(heroId).withSelfRel();
-            hero.add(selfLink);
+//            Link selfLink = linkTo(HeroController.class).slash(heroId).withSelfRel();
+//          hero.add(selfLink);
         }
 
         Link link = linkTo(HeroController.class).withSelfRel();
@@ -44,7 +44,7 @@ public class HeroController {
         if (optHero.isPresent()) {
             Hero hero = optHero.get();
 
-            hero.add(linkTo(HeroController.class).slash(hero.getId()).withSelfRel());
+//            hero.add(linkTo(HeroController.class).slash(hero.getId()).withSelfRel());
 
             return hero;
         }
