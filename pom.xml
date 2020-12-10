@@ -9,6 +9,7 @@
         <module>arena</module>
         <module>promoter</module>
 		<module>eureka</module>
+		<module>frontend</module>
 	</modules>
 
 	<parent>
