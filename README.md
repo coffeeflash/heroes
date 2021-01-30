@@ -3,7 +3,9 @@
 ## Postman Collection
 In dem Wurzelverzeichnis findet sich eine PostmanCollection mit allen Calls und richtigen Ports und Defaultparametern.
 Auch der neu eingeführte ***Ticketbooth Service*** und seine Features sind darin enthalten.
+
 ## Erweiterung:
+### Ticketbooth
 Es gibt einen weiteren Microservice namens "ticketbooth", welcher die Endpoints; "/buyTicket" und "/checkTicket" zur Verfügung stellt.
 Folgende TicketIds werden beim Start der App initalisiert (für die sogenannten Staffs):
 * VIP001
@@ -13,6 +15,11 @@ Folgende TicketIds werden beim Start der App initalisiert (für die sogenannten 
 Mit diesen Ticket Nummern kann man jederzeit einen ***bezahlten*** Kampf bestaunen...
 Andernfalls muss man eines kaufen gehen.
 
+Der Ticketbooth-Service hat auch eine eigene ***MongoDb***, worin die Tickets gespeichert werden.
+Die "Ticket" Instance ist sehr simpel und besteht lediglich aus der DocumentId, welche auch gerade als
+Ticker Nummer dient. 
+
+### Promoter
 Der microservice ***Promoter*** wurde mit einem weiteren endpoint ausgestattet; "/promotePaidFight". 
 Im Genensatz zu dem default "/promoteFight", muss bei diesem Call eine Ticketnummer mitgegeben werden, welche dann in der Ticketbooth überprüft wird.
 Ist die Nummer in der Datenbank, wird der bezahlte Kmapf lanciert, sonst wird darauf hingewisen dass ein valides Ticket bezogen werden muss. Wird keine Ticketnummer mitgegeben, wirft der Promoter eine Exception :)
@@ -33,6 +40,13 @@ public String promotePaidFight(@RequestParam String ticketId) {
             return "Sorry, you have to buy a valid ticket at the ticket booth first";
         }
 }
+ ```
+
+### Frontend
+
+Im Frontend Service musste nur die zuul route hinzugefügt werden
+```properties
+zuul.routes.ticketbooth=/ticketbooth/**
  ```
 
 ## Challenges / Surprises
