@@ -10,7 +10,8 @@
         <module>promoter</module>
 		<module>eureka</module>
 		<module>frontend</module>
-	</modules>
+        <module>ticketbooth</module>
+    </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
