@@ -181,6 +181,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "promotePaidFight",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/promotePaidFight?ticketId=60152f3159f48c65e9f8cbbc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"promotePaidFight"
+					],
+					"query": [
+						{
+							"key": "ticketId",
+							"value": "60152f3159f48c65e9f8cbbc"
+						},
+						{
+							"key": "ticketId",
+							"value": "VIP001",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
