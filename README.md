@@ -19,5 +19,34 @@ Ist die Nummer in der Datenbank, wird der bezahlte Kmapf lanciert, sonst wird da
 
 Der PaidFight startet ein ganzes Tournament an Kämpfen...
 
-## Restart der Microservices
+```java
+@GetMapping(value = "/promotePaidFight")
+public String promotePaidFight(@RequestParam String ticketId) {
+        if(ticketboothClient.checkTicket(ticketId)){
+            String result = "The Promoter is proud to " +
+                "proclaim the following result of today's ----paid---- tournament\n";
+            for (int i = 0; i < 3; i++) {
+                result += "Fight " + i + ": " + promoterService.promoteFight()+ " \n";
+        }
+            return result;
+        }else{
+            return "Sorry, you have to buy a valid ticket at the ticket booth first";
+        }
+}
+ ```
+
+## Challenges / Surprises
+
+### Versionen
+
+Mit dem Springinitalizer schmuggelten sich hier und da mal Versionen rein, welche Sie nicht verwendeten,
+was anfänglich ein bisschen verwirrend war. 
+
+### Microservices hinzufügen
+
+Mich überraschte die Einfachheit, wie weitere Services hinzugefügt und verknüpft werden können. 
+Allgemein hat das Spring Framework in seiner Gesamtheit überzeugt. Die Möglichkeiten scheinen immens und die PRoduktivität kann mit gezieltem Einsatz bestimmt verbessert werden.
+Ich (Tobias) arbeite auch mit Spring in einem Unternehmen, wo ich dank diesem Modul auch motiviert bin ein bisschen mehr Modularität in Form von Microservices in die Applikation zu bringen.
+
+### Restart der Microservices
 Ab undzu müssen die gewisse Services am Anfang restartet werden, resp. sie müssten wahrscheinlich in einer gewissen Reihgenfolge gestartet... Also wenn es Fehler gibt, dass ein Service nicht verfügbar ist, verpasste der in der Regel sich bei der Registry anzumelden.
